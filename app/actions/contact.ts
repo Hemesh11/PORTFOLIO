@@ -44,8 +44,8 @@ export async function submitContactForm(prevState: ContactFormState, formData: F
 
     const { name, message } = validatedFields.data
 
-    // Save message to file
-    await saveMessage({ name, message })
+    // Save message to file (disabled for Vercel)
+    // await saveMessage({ name, message })
 
     // Send notifications to your phone (multiple methods)
     await sendPhoneNotifications({ name, message })
@@ -70,7 +70,8 @@ export async function submitContactForm(prevState: ContactFormState, formData: F
   }
 }
 
-// Save message to a JSON file
+// Save message to a JSON file (disabled for Vercel)
+/*
 async function saveMessage({ name, message }: { name: string; message: string }) {
   try {
     const messagesDir = path.join(process.cwd(), "messages")
@@ -113,6 +114,7 @@ async function saveMessage({ name, message }: { name: string; message: string })
     throw error
   }
 }
+*/
 
 // Send notifications to your phone
 async function sendPhoneNotifications({ name, message }: { name: string; message: string }) {
